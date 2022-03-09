@@ -55,6 +55,8 @@ export function move(gameArr, key) {
   let gameSize = gameArr.length ** (1 / 2);
   let startId;
   let thisId;
+  let nextId;
+  let nextFreeId;
   let iSummand;
   let jSummand;
   let lastValue;
@@ -68,9 +70,9 @@ export function move(gameArr, key) {
       startId = gameArr.length - gameSize;
       break;
     case "a":
-      iSummand = 1;
+      iSummand = -1;
       jSummand = gameSize;
-      startId = 0;
+      startId = gameSize - 1;
       break;
     case "s":
       iSummand = gameSize;
@@ -78,28 +80,24 @@ export function move(gameArr, key) {
       startId = 0;
       break;
     case "d":
-      iSummand = -1;
+      iSummand = 1;
       jSummand = gameSize;
-      startId = gameArr.length - gameSize;
+      startId = 0;
 
       break;
   }
 
   for (let j = 0; j < gameSize; j++) {
     for (let i = 0; i < gameSize; i++) {
-      lastValue = thisValue;
-      thisId = startId + iSummand * i;
-      thisValue = gameArr[thisId];
-      if (lastValue == thisValue && !added) {
-        gameArr[thisId].setAttribute("value", lastValue + thisValue);
-        added = true;
-      } else if (added) {
-        gameArr[thisId].setAttribute("value", null);
-        added = false;
+      // wenn zusammenpassen
+      // zusammenfügen
+      // an rand machen wenn frei
+      thisId = startId + i * iSummand + j * jSummand;
+      console.log(thisId);
+
+      if (gameArr[thisId].getAttribute("value") == null) {
+        nextFreeId = thisId;
       }
-      
-      // gameArr.length - gameSize + iSummand * i;
-      // console.log(gameArr.length - gameSize + iSummand * i);
     }
   }
 
