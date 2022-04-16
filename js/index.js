@@ -1,6 +1,4 @@
-import start from "./start.js";
+import createGame from "./game.js";
 
-const gameContainer = document.getElementById("game-container");
-let gameSize = 5;
-
-start(gameContainer, gameSize);
+const gameContainer = document.getElementById("game");
+createGame(gameContainer, 4);

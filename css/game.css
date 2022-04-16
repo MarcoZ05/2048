@@ -1,0 +1,83 @@
+:root{
+    --background: rgb(101, 101, 101);
+    --color1 :yellow;
+    --color2 :orange;
+    --color3 :darkorange;
+    --color4 :red;
+    --color5 :brown;
+    --color6 :darkred;
+    --color7 :purple;
+    --color8 :darkviolet;
+    --color9 :violet;
+    --color10 : pink;
+    --color11 : white;
+    --color12 : radial-gradient(circle, var(--color1) 0%, var(--color2) 100%);
+
+}
+
+.game{
+    background: var(--background);
+    display: grid;
+    font-family: 'Press Start 2P', cursive;
+    color: black;
+    font-size: 3rem;
+    border-radius: 10px;
+    border: 5px solid black;
+}
+
+.game .cell{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.game .cell[data-value]{
+    background: var(--color12);
+    border: 2.5px solid black;
+    border-radius: 10px;
+}
+
+.game .cell[data-value="2"]{
+    background: var(--color1) !important;
+}
+
+.game .cell[data-value="4"]{
+    background: var(--color2) !important;
+}
+
+.game .cell[data-value="8"]{
+    background: var(--color3) !important;
+}
+
+.game .cell[data-value="16"]{
+    background: var(--color4) !important;
+}
+
+.game .cell[data-value="32"]{
+    background: var(--color5) !important;
+}
+
+.game .cell[data-value="64"]{
+    background: var(--color6) !important;
+}
+
+.game .cell[data-value="128"]{
+    background: var(--color7) !important;
+}
+
+.game .cell[data-value="256"]{
+    background: var(--color8) !important;
+}
+
+.game .cell[data-value="512"]{
+    background: var(--color9) !important;
+}
+
+.game .cell[data-value="1024"]{
+    background: var(--color10) !important;
+}
+
+.game .cell[data-value="2048"]{
+    background: var(--color11) !important;
+}
