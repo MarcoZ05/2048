@@ -12,8 +12,9 @@ export default function newCell(gameContainer, gameObject) {
   let randIndex2 = Math.floor(Math.random() * gameObject.length);
 
   while (gameObject[randIndex1][randIndex2] != 0) {
-    let randIndex1 = Math.floor(Math.random() * gameObject.length);
-    let randIndex2 = Math.floor(Math.random() * gameObject.length);
+    console.log("loop");
+    randIndex1 = Math.floor(Math.random() * gameObject.length);
+    randIndex2 = Math.floor(Math.random() * gameObject.length);
   }
   gameObject[randIndex1][randIndex2] = 2;
 

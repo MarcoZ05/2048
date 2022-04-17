@@ -1,5 +1,8 @@
 import displayGame from "./displayGame.js";
-import * as move from "./move.js";
+import moveUp from "./moveUp.js";
+import moveDown from "./moveDown.js";
+import moveLeft from "./moveLeft.js";
+import moveRight from "./moveRight.js";
 import newCell from "./newCell.js";
 
 export default function createGame(gameContainer, cellAmount) {
@@ -31,26 +34,25 @@ export default function createGame(gameContainer, cellAmount) {
     switch (e.key) {
       case "ArrowUp":
       case "w":
-        gameObject = move.up(gameObject);
+        gameObject = moveUp(gameObject);
         break;
       case "ArrowDown":
       case "s":
-        gameObject = move.down(gameObject);
+        gameObject = moveDown(gameObject);
         break;
       case "ArrowLeft":
       case "a":
-        gameObject = move.left(gameObject);
+        gameObject = moveLeft(gameObject);
         break;
       case "ArrowRight":
       case "d":
-        gameObject = move.right(gameObject);
+        gameObject = moveRight(gameObject);
         break;
       default:
         return;
     }
-    // gameObject = newCell(gameContainer, gameObject);
-    // displayGame(gameContainer, gameObject);
-    // console.log();
+    gameObject = newCell(gameContainer, gameObject);
+    displayGame(gameContainer, gameObject);
   });
 
   // spawn starter cells
