@@ -12,13 +12,14 @@ export default function newCell(gameContainer, gameObject) {
   let randIndex2 = Math.floor(Math.random() * gameObject.length);
 
   while (gameObject[randIndex1][randIndex2] != 0) {
-    randIndex1 = Math.floor(Math.random() * (gameObject.length + 1));
-    randIndex2 = Math.floor(Math.random() * (gameObject.length + 1));
+    let randIndex1 = Math.floor(Math.random() * gameObject.length);
+    let randIndex2 = Math.floor(Math.random() * gameObject.length);
   }
+  gameObject[randIndex1][randIndex2] = 2;
+
   let thisCell = gameContainer.querySelector(
     `[data-row="${randIndex1}"][data-col="${randIndex2}"]`
   );
-  gameObject[randIndex1][randIndex2] = 2;
   thisCell.dataset.value = 2;
 
   return gameObject;

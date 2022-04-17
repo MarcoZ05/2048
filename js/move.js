@@ -7,20 +7,22 @@ export function up(gameObj) {
     newGameObject[index2] = [];
     let tempIndex1 = null;
     for (let index1 = 0; index1 < cellAmount; index1++) {
-      console.log(index1, index2, gameObj, tempIndex1, newGameObject);
+      // for all cells in this row or column
       if (
         tempIndex1 != null &&
         gameObj[tempIndex1][index2] == gameObj[index1][index2]
       ) {
-        newGameObject[tempIndex1][index2] = gameObj[tempIndex1][index2] * 2;
+        // if cell is compatible, combine cells
+        newGameObject[tempIndex1].push(gameObj[tempIndex1][index2] * 2);
         tempIndex1 = null;
       } else if (gameObj[index1][index2] != 0) {
+        // if cell is not compatible but not empty, set tempIndex1 to index1
         tempIndex1 = index1;
       }
     }
   }
 
-  console.log(newGameObject);
+  console.log(gameObj);
 
   // move cells up
   for (let index2 = cellAmount - 1; index2 >= 0; index2--) {
@@ -36,20 +38,44 @@ export function up(gameObj) {
     }
   }
 
-  console.log(newGameObject);
-
   for (let index1 = 0; index1 < gameObj.length; index1++) {
     for (let index2 = 0; index2 < gameObj[index1].length; index2++) {
-      if (newGameObject[index1][index2] == 0) {
-        newGameObject[index1][index2] = newGameObject[index1][index2] + 1;
+      if (newGameObject[index1][index2] == null) {
+        newGameObject[index1][index2] = 0;
       }
     }
   }
+
+  console.log(newGameObject);
   return newGameObject;
 }
 
-export function down(gameObj) {}
+export function down(gameObj) {
+  let newGameObject = [];
+  let cellAmount = gameObj.length;
 
-export function left(gameObj) {}
+  // combine cells if they are the same
+  // for (let index2 = cellAmount - 1; index2 >= 0; index2--) {
+  //   for (let index1 = 0; index1 < cellAmount; index1++) {}
+  // }
+}
 
-export function right(gameObj) {}
+export function left(gameObj) {
+  let newGameObject = [];
+  let cellAmount = gameObj.length;
+
+  // combine cells if they are the same
+  // for (let index1 = 0; index1 < cellAmount; index1++) {
+  //   for (let index2 = 0; index2 < cellAmount; index2++) {}
+  // }
+}
+
+export function right(gameObj) {
+  let newGameObject = [];
+  let cellAmount = gameObj.length;
+
+  // combine cells if they are the same
+  // for (let index1 = 0; index1 < cellAmount; index1++) {
+  //   for (let index2 = 0; index2 < cellAmount; index2++) {}
+  // }
+}

@@ -1,5 +1,5 @@
 import displayGame from "./displayGame.js";
-import play from "./play.js";
+import * as move from "./move.js";
 import newCell from "./newCell.js";
 
 export default function createGame(gameContainer, cellAmount) {
@@ -28,21 +28,29 @@ export default function createGame(gameContainer, cellAmount) {
   }
 
   window.addEventListener("keydown", (e) => {
-    if (
-      e.key == "ArrowUp" ||
-      e.key == "w" ||
-      e.key == "ArrowDown" ||
-      e.key == "s" ||
-      e.key == "ArrowLeft" ||
-      e.key == "a" ||
-      e.key == "ArrowRight" ||
-      e.key == "d"
-    ) {
-      console.log(gameObject);
-      gameObject = play(e.key, gameContainer, gameObject);
-      console.log(gameObject);
+    switch (e.key) {
+      case "ArrowUp":
+      case "w":
+        gameObject = move.up(gameObject);
+        break;
+      case "ArrowDown":
+      case "s":
+        gameObject = move.down(gameObject);
+        break;
+      case "ArrowLeft":
+      case "a":
+        gameObject = move.left(gameObject);
+        break;
+      case "ArrowRight":
+      case "d":
+        gameObject = move.right(gameObject);
+        break;
+      default:
+        return;
     }
-    displayGame(gameContainer, gameObject);
+    // gameObject = newCell(gameContainer, gameObject);
+    // displayGame(gameContainer, gameObject);
+    // console.log();
   });
 
   // spawn starter cells
