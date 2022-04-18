@@ -51,7 +51,11 @@ export default function createGame(gameContainer, cellAmount) {
       default:
         return;
     }
-    gameObject = newCell(gameContainer, gameObject);
+    setTimeout(() => {
+      gameObject = newCell(gameContainer, gameObject);
+      displayGame(gameContainer, gameObject);
+    }, 75);
+
     displayGame(gameContainer, gameObject);
   });
 

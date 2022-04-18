@@ -1,3 +1,5 @@
+// ganz unten nach oben und nicht komnentiert => der fehler ist hier
+
 export default function moveUp(gameObj) {
   let cellAmount = gameObj.length;
 
@@ -32,7 +34,10 @@ export default function moveUp(gameObj) {
         // if cell is not compatible but not empty
         tempIndex1 = index1;
         if (index1 + 1 == cellAmount) {
-          newGameObject[newIndex1][index2] = gameObj[tempIndex1][index2];
+          newGameObject[newIndex1][index2] = gameObj[index1][index2];
+          console.log("JETZT");
+          console.log(newGameObject[newIndex1][index2]);
+          console.log(gameObj[index1][index2]);
         }
       }
     }
